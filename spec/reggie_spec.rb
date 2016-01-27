@@ -5,7 +5,7 @@ describe Reggie do
     expect(Reggie::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  it 'returns a Pattern match object' do
+    expect(Reggie::Pattern.match).not_to be nil
   end
 end

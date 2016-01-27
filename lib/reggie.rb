@@ -1,5 +1,9 @@
 require "reggie/version"
 
 module Reggie
-  # Your code goes here...
+  class Pattern
+    def self.match
+      Pattern.new
+    end
+  end
 end
