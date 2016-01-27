@@ -8,13 +8,17 @@ Instead of:
 ```
 Use this:
 ```ruby
-Reggie.create do
+Reggie.define do
   pattern UserName do
     min 3
     max 16
     match :letters, :numbers, :underscores, :hyphens
   end
 end
+
+user_name_pattern = Reggie.build(UserName)
+user_name = 'my-us3r_n4m3'
+matches = user_name_pattern.matches(user_name)
 ```
 
 ## Installation
