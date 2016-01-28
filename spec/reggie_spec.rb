@@ -6,6 +6,17 @@ describe Reggie do
   end
 
   it 'returns a Pattern match object' do
-    expect(Reggie::Pattern.match).not_to be nil
+
+    Reggie.define do
+      pattern UserName do
+        first "Carlos"
+        last "Gabaldon"
+      end
+    end
+
+    user_name_pattern = Reggie.build(UserName)
+    expect(user_name_pattern.first).to eq "Carlos"
+    expect(user_name_pattern.last).to eq "Gabaldon"
+
   end
 end
