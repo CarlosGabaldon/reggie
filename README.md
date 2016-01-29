@@ -9,14 +9,14 @@ Instead of:
 Use this:
 ```ruby
 Reggie.define do
-  pattern UserName do
+  pattern :user_name do
     min 3
     max 16
     match :letters, :numbers, :underscores, :hyphens
   end
 end
 
-user_name_pattern = Reggie.build(UserName)
+user_name_pattern = Reggie.build(:user_name)
 user_name = 'my-us3r_n4m3'
 matches = user_name_pattern.matches(user_name)
 ```
