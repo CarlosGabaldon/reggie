@@ -24,6 +24,15 @@ module Reggie
     attributes.each do |attribute_name, value|
       instance.send("#{attribute_name}=", value)
     end
+    instance.class.send(:define_method, :matches,
+      ->(values) {
+        # To do
+        # 1. Create regex matching object
+        # 2. Use the pattern_class to match against the values passed
+        # 3. Return the matches
+        # * This logic should live in a regex matching class..create one..
+        [values]
+      })
     instance
   end
 
