@@ -2,6 +2,7 @@ require 'reggie/version'
 require 'reggie/definition_proxy'
 require 'reggie/pattern'
 require 'reggie/patterns'
+require 'reggie/match'
 require 'byebug'
 
 module Reggie
@@ -26,12 +27,8 @@ module Reggie
     end
     instance.class.send(:define_method, :matches,
       ->(values) {
-        # To do
-        # 1. Create regex matching object
-        # 2. Use the pattern_class to match against the values passed
-        # 3. Return the matches
-        # * This logic should live in a regex matching class..create one..
-        [values]
+        match = Match.new(pattern: pattern, string_to_match: values)
+        match.capture
       })
     instance
   end
